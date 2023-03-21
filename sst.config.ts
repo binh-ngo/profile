@@ -1,6 +1,6 @@
 import { SSTConfig } from "sst";
-// @ts-ignore - module does not provide typing 
-import { StorageStack } from "./stacks/StorageStack";
+const ApiStack = require("./stacks/ApiStack");
+const StorageStack = require("./stacks/StorageStack");
 
 export default {
   config(_input) {
@@ -10,6 +10,6 @@ export default {
     };
   },
   stacks(app) {
-    app.stack(StorageStack);
+    app.stack(StorageStack).stack(ApiStack);
   },
 } satisfies SSTConfig;
